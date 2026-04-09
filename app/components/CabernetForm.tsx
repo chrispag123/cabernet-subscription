@@ -83,211 +83,250 @@ export default function CabernetForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-green-700 rounded-full"></div>
-            <h1 className="text-xl font-light text-gray-900">ONES</h1>
+    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden pt-20 pb-32">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute top-20 right-1/4 w-96 h-96 bg-amber-700 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center">
+                <span className="text-white text-2xl font-bold">🍷</span>
+              </div>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              The Cabernet<br />Collection
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Premium non-alcoholic red wines. Zero sugar, pure flavor. Delivered to your door.
+            </p>
           </div>
-          <p className="text-sm text-gray-600 mt-2">Cabernet Collection Subscription</p>
+
+          {/* Product Preview Cards */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className={`p-8 rounded-2xl backdrop-blur-sm transition-all cursor-pointer ${product === 'franc' ? 'bg-red-500/30 border-2 border-red-400' : 'bg-white/5 border border-white/10 hover:border-red-400/50'}`} onClick={() => setProduct('franc')}>
+              <div className="h-64 bg-gradient-to-b from-red-600 to-red-900 rounded-lg mb-4 flex items-center justify-center">
+                <span className="text-6xl">🍇</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Cabernet Franc</h3>
+              <p className="text-gray-300 text-sm mb-4">Violets & currants on the nose with a velvety finish. Pairs with roasted meats and aged cheese.</p>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400 text-sm">0g Sugar • <0.5% ABV</span>
+                <span className="text-red-400 font-semibold">$149.99</span>
+              </div>
+            </div>
+
+            <div className={`p-8 rounded-2xl backdrop-blur-sm transition-all cursor-pointer ${product === 'sauvignon' ? 'bg-red-500/30 border-2 border-red-400' : 'bg-white/5 border border-white/10 hover:border-red-400/50'}`} onClick={() => setProduct('sauvignon')}>
+              <div className="h-64 bg-gradient-to-b from-red-700 to-red-950 rounded-lg mb-4 flex items-center justify-center">
+                <span className="text-6xl">🍷</span>
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Cabernet Sauvignon</h3>
+              <p className="text-gray-300 text-sm mb-4">Black currant, spices & subtle raspberries. Full-bodied with soft tannins and a bright finish.</p>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400 text-sm">0g Sugar • <0.5% ABV</span>
+                <span className="text-red-400 font-semibold">$149.99</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto px-4 py-8 space-y-8">
-        
-        {/* Product Selection */}
-        <section>
-          <h2 className="text-lg font-light text-gray-900 mb-4">Select Your Wine</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {['franc', 'sauvignon'].map((p) => (
-              <button
-                key={p}
-                type="button"
-                onClick={() => setProduct(p as Product)}
-                className={`p-4 rounded-lg border-2 transition-all ${
-                  product === p
-                    ? 'border-green-700 bg-green-50'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
-                }`}
-              >
-                <div className="font-light text-gray-900 text-sm">
-                  {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
-                </div>
-                <div className="text-xs text-gray-500 mt-1">Premium Blend</div>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Pack Size */}
-        <section>
-          <h2 className="text-lg font-light text-gray-900 mb-4">Bottle Count</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {[6, 12].map((size) => (
-              <button
-                key={size}
-                type="button"
-                onClick={() => setPackSize(size as PackSize)}
-                className={`p-4 rounded-lg border-2 transition-all ${
-                  packSize === size
-                    ? 'border-green-700 bg-green-50'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
-                }`}
-              >
-                <div className="font-light text-gray-900 text-sm">{size} Bottles</div>
-                <div className="text-xs text-gray-500 mt-1">750 mL each</div>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        {/* Subscription Frequency */}
-        <section>
-          <h2 className="text-lg font-light text-gray-900 mb-4">Delivery Frequency</h2>
-          <div className="space-y-2">
-            {(Object.entries(FREQUENCY_LABELS) as Array<[Frequency, string]>).map(([freq, label]) => (
-              <label key={freq} className="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                <input
-                  type="radio"
-                  name="frequency"
-                  value={freq}
-                  checked={frequency === freq}
-                  onChange={(e) => setFrequency(e.target.value as Frequency)}
-                  className="w-4 h-4 text-green-700"
-                />
-                <span className="ml-3 text-sm text-gray-900">{label}</span>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        {/* Price Summary */}
-        <section className="bg-green-50 border border-green-200 rounded-lg p-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="text-sm text-gray-600">Every shipment</p>
-              <p className="text-xs text-gray-500 mt-1">Free shipping included</p>
-            </div>
-            <div className="text-right">
-              <p className="text-2xl font-light text-green-700">${price}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Customer Info */}
-        <section className="space-y-4">
-          <h2 className="text-lg font-light text-gray-900">Delivery Information</h2>
+      {/* Order Form Section */}
+      <div className="max-w-2xl mx-auto px-4 pb-16">
+        <form onSubmit={handleSubmit} className="space-y-8">
           
-          <div className="grid grid-cols-2 gap-4">
+          {/* Pack Size */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">How Many Bottles?</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[6, 12].map((size) => (
+                <button
+                  key={size}
+                  type="button"
+                  onClick={() => setPackSize(size as PackSize)}
+                  className={`p-4 rounded-xl transition-all border-2 font-semibold ${
+                    packSize === size
+                      ? 'bg-red-600 border-red-400 text-white shadow-lg shadow-red-600/50'
+                      : 'bg-white/5 border-white/20 text-white hover:border-red-400/50'
+                  }`}
+                >
+                  <div className="text-xl mb-1">{size} Pack</div>
+                  <div className="text-sm opacity-80">750mL bottles</div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Subscription Frequency */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">Delivery Schedule</h3>
+            <div className="space-y-3">
+              {(Object.entries(FREQUENCY_LABELS) as Array<[Frequency, string]>).map(([freq, label]) => (
+                <label key={freq} className={`flex items-center p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                  frequency === freq
+                    ? 'bg-red-600/20 border-red-400 text-white'
+                    : 'bg-white/5 border-white/20 text-gray-300 hover:border-red-400/50'
+                }`}>
+                  <input
+                    type="radio"
+                    name="frequency"
+                    value={freq}
+                    checked={frequency === freq}
+                    onChange={(e) => setFrequency(e.target.value as Frequency)}
+                    className="w-5 h-5"
+                  />
+                  <span className="ml-3 font-medium">{label}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          {/* Price Summary */}
+          <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-500/50 rounded-2xl p-6 backdrop-blur-sm">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-gray-300">Every shipment includes:</span>
+              <span className="text-gray-400 text-sm">Free shipping</span>
+            </div>
+            <div className="flex justify-between items-end">
+              <div>
+                <p className="text-gray-400 text-sm mb-1">{packSize}-pack of {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}</p>
+                <p className="text-red-400 text-sm">{FREQUENCY_LABELS[frequency]}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-4xl font-bold text-white">${price}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Customer Info */}
+          <div>
+            <h3 className="text-white text-lg font-semibold mb-4">Shipping Address</h3>
+            
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                required
+              />
+            </div>
+
             <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.firstName}
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
               onChange={handleInputChange}
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
               required
             />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number (Optional)"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
+            />
+
             <input
               type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={formData.lastName}
+              name="address"
+              placeholder="Street Address"
+              value={formData.address}
               onChange={handleInputChange}
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
+              required
+            />
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                value={formData.city}
+                onChange={handleInputChange}
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                required
+              />
+              <input
+                type="text"
+                name="province"
+                placeholder="Province"
+                value={formData.province}
+                onChange={handleInputChange}
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                required
+              />
+            </div>
+
+            <input
+              type="text"
+              name="postalCode"
+              placeholder="Postal Code"
+              value={formData.postalCode}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
               required
             />
           </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-            required
-          />
+          {/* Status Messages */}
+          {submitStatus === 'success' && (
+            <div className="bg-green-500/20 border border-green-500/50 rounded-xl p-4">
+              <p className="text-green-300 font-medium">✓ Subscription created! Check your email for confirmation.</p>
+            </div>
+          )}
 
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-          />
+          {submitStatus === 'error' && (
+            <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-4">
+              <p className="text-red-300 font-medium">Something went wrong. Please try again.</p>
+            </div>
+          )}
 
-          <input
-            type="text"
-            name="address"
-            placeholder="Street Address"
-            value={formData.address}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-            required
-          />
+          {/* CTA */}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white py-4 rounded-xl font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-600/50 disabled:shadow-none"
+          >
+            {isSubmitting ? 'Processing...' : 'Start Your Subscription'}
+          </button>
 
-          <div className="grid grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              value={formData.city}
-              onChange={handleInputChange}
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-              required
-            />
-            <input
-              type="text"
-              name="province"
-              placeholder="Province"
-              value={formData.province}
-              onChange={handleInputChange}
-              className="px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-              required
-            />
-          </div>
+          <p className="text-gray-400 text-center text-sm">
+            No commitment. Cancel anytime. First shipment charged upon order.
+          </p>
+        </form>
+      </div>
 
-          <input
-            type="text"
-            name="postalCode"
-            placeholder="Postal Code"
-            value={formData.postalCode}
-            onChange={handleInputChange}
-            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-700"
-            required
-          />
-        </section>
-
-        {/* Status Messages */}
-        {submitStatus === 'success' && (
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-            <p className="text-sm text-green-900">✓ Subscription created! Check your email for confirmation.</p>
-          </div>
-        )}
-
-        {submitStatus === 'error' && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-sm text-red-900">Something went wrong. Please try again.</p>
-          </div>
-        )}
-
-        {/* CTA */}
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-green-700 text-white py-3 rounded-lg font-light text-base hover:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {isSubmitting ? 'Processing...' : 'Start Your Subscription'}
-        </button>
-
-        <p className="text-xs text-gray-500 text-center">
-          No commitment. Cancel anytime. First shipment charged upon order.
-        </p>
-      </form>
+      {/* Footer */}
+      <div className="border-t border-white/10 mt-16 py-8">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <p className="text-gray-400 text-sm">
+            Made in Canada • Zero Sugar • <0.5% ABV • 18-20 Calories/Glass
+          </p>
+          <p className="text-gray-500 text-xs mt-4">
+            © 2026 ONES • Canada's First Non-Alcoholic Winery
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
