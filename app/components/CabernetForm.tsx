@@ -61,16 +61,6 @@ export default function CabernetForm() {
 
       if (response.ok) {
         setSubmitStatus('success')
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          address: '',
-          city: '',
-          province: '',
-          postalCode: '',
-        })
       } else {
         setSubmitStatus('error')
       }
@@ -87,55 +77,63 @@ export default function CabernetForm() {
       {/* Hero Section */}
       <div className="relative overflow-hidden pt-20 pb-32">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute top-20 right-1/4 w-96 h-96 bg-amber-700 rounded-full mix-blend-multiply filter blur-3xl"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-700 rounded-full mix-blend-multiply filter blur-3xl" />
+          <div className="absolute top-20 right-1/4 w-96 h-96 bg-amber-700 rounded-full mix-blend-multiply filter blur-3xl" />
         </div>
         
         <div className="relative max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-block mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center">
-                <span className="text-white text-2xl font-bold">🍷</span>
+                <span className="text-white text-2xl">🍷</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
               The Cabernet<br />Collection
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Premium non-alcoholic red wines. Zero sugar, pure flavor. Delivered to your door.
+              Premium non-alcoholic red wines. Zero sugar, pure flavor.
             </p>
           </div>
 
-          {/* Product Preview Cards */}
+          {/* Product Cards */}
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className={`p-8 rounded-2xl backdrop-blur-sm transition-all cursor-pointer ${product === 'franc' ? 'bg-red-500/30 border-2 border-red-400' : 'bg-white/5 border border-white/10 hover:border-red-400/50'}`} onClick={() => setProduct('franc')}>
-              <div className="h-64 bg-gradient-to-b from-red-600 to-red-900 rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-6xl">🍇</span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Cabernet Franc</h3>
-              <p className="text-gray-300 text-sm mb-4">Violets & currants on the nose with a velvety finish. Pairs with roasted meats and aged cheese.</p>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400 text-sm">0g Sugar • <0.5% ABV</span>
-                <span className="text-red-400 font-semibold">$149.99</span>
-              </div>
-            </div>
-
-            <div className={`p-8 rounded-2xl backdrop-blur-sm transition-all cursor-pointer ${product === 'sauvignon' ? 'bg-red-500/30 border-2 border-red-400' : 'bg-white/5 border border-white/10 hover:border-red-400/50'}`} onClick={() => setProduct('sauvignon')}>
-              <div className="h-64 bg-gradient-to-b from-red-700 to-red-950 rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-6xl">🍷</span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Cabernet Sauvignon</h3>
-              <p className="text-gray-300 text-sm mb-4">Black currant, spices & subtle raspberries. Full-bodied with soft tannins and a bright finish.</p>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-400 text-sm">0g Sugar • <0.5% ABV</span>
-                <span className="text-red-400 font-semibold">$149.99</span>
-              </div>
-            </div>
+            {['franc', 'sauvignon'].map((p) => {
+              const isSelected = product === (p as Product)
+              return (
+                <button
+                  key={p}
+                  type="button"
+                  onClick={() => setProduct(p as Product)}
+                  className={`p-8 rounded-2xl backdrop-blur-sm transition-all text-left ${
+                    isSelected
+                      ? 'bg-red-500/30 border-2 border-red-400'
+                      : 'bg-white/5 border border-white/10 hover:border-red-400/50'
+                  }`}
+                >
+                  <div className="h-64 bg-gradient-to-b from-red-600 to-red-900 rounded-lg mb-4 flex items-center justify-center text-6xl">
+                    🍇
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-4">
+                    {p === 'franc'
+                      ? 'Violets & currants. Velvety finish.'
+                      : 'Black currant & spices. Full-bodied.'}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-400 text-sm">0g Sugar</span>
+                    <span className="text-red-400 font-semibold">$149.99</span>
+                  </div>
+                </button>
+              )
+            })}
           </div>
         </div>
       </div>
 
-      {/* Order Form Section */}
+      {/* Form Section */}
       <div className="max-w-2xl mx-auto px-4 pb-16">
         <form onSubmit={handleSubmit} className="space-y-8">
           
@@ -150,18 +148,18 @@ export default function CabernetForm() {
                   onClick={() => setPackSize(size as PackSize)}
                   className={`p-4 rounded-xl transition-all border-2 font-semibold ${
                     packSize === size
-                      ? 'bg-red-600 border-red-400 text-white shadow-lg shadow-red-600/50'
+                      ? 'bg-red-600 border-red-400 text-white'
                       : 'bg-white/5 border-white/20 text-white hover:border-red-400/50'
                   }`}
                 >
-                  <div className="text-xl mb-1">{size} Pack</div>
+                  <div className="text-xl">{size} Pack</div>
                   <div className="text-sm opacity-80">750mL bottles</div>
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Subscription Frequency */}
+          {/* Frequency */}
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Delivery Schedule</h3>
             <div className="space-y-3">
@@ -185,16 +183,11 @@ export default function CabernetForm() {
             </div>
           </div>
 
-          {/* Price Summary */}
-          <div className="bg-gradient-to-r from-red-600/20 to-red-700/20 border border-red-500/50 rounded-2xl p-6 backdrop-blur-sm">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-gray-300">Every shipment includes:</span>
-              <span className="text-gray-400 text-sm">Free shipping</span>
-            </div>
+          {/* Price */}
+          <div className="bg-red-600/20 border border-red-500/50 rounded-2xl p-6">
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-gray-400 text-sm mb-1">{packSize}-pack of {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}</p>
-                <p className="text-red-400 text-sm">{FREQUENCY_LABELS[frequency]}</p>
+                <p className="text-gray-400 text-sm">{packSize}-pack every {FREQUENCY_LABELS[frequency].toLowerCase()}</p>
               </div>
               <div className="text-right">
                 <p className="text-4xl font-bold text-white">${price}</p>
@@ -213,7 +206,7 @@ export default function CabernetForm() {
                 placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
                 required
               />
               <input
@@ -222,7 +215,7 @@ export default function CabernetForm() {
                 placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
                 required
               />
             </div>
@@ -233,17 +226,17 @@ export default function CabernetForm() {
               placeholder="Email Address"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 mb-4"
               required
             />
 
             <input
               type="tel"
               name="phone"
-              placeholder="Phone Number (Optional)"
+              placeholder="Phone (Optional)"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 mb-4"
             />
 
             <input
@@ -252,7 +245,7 @@ export default function CabernetForm() {
               placeholder="Street Address"
               value={formData.address}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all mb-4"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 mb-4"
               required
             />
 
@@ -263,7 +256,7 @@ export default function CabernetForm() {
                 placeholder="City"
                 value={formData.city}
                 onChange={handleInputChange}
-                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
                 required
               />
               <input
@@ -272,7 +265,7 @@ export default function CabernetForm() {
                 placeholder="Province"
                 value={formData.province}
                 onChange={handleInputChange}
-                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                className="px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
                 required
               />
             </div>
@@ -283,47 +276,44 @@ export default function CabernetForm() {
               placeholder="Postal Code"
               value={formData.postalCode}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
               required
             />
           </div>
 
-          {/* Status Messages */}
+          {/* Status */}
           {submitStatus === 'success' && (
             <div className="bg-green-500/20 border border-green-500/50 rounded-xl p-4">
-              <p className="text-green-300 font-medium">✓ Subscription created! Check your email for confirmation.</p>
+              <p className="text-green-300">✓ Subscription created!</p>
             </div>
           )}
 
           {submitStatus === 'error' && (
             <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-4">
-              <p className="text-red-300 font-medium">Something went wrong. Please try again.</p>
+              <p className="text-red-300">Error. Please try again.</p>
             </div>
           )}
 
-          {/* CTA */}
+          {/* Button */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white py-4 rounded-xl font-semibold text-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-red-600/50 disabled:shadow-none"
+            className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white py-4 rounded-xl font-semibold text-lg transition-all disabled:opacity-50"
           >
             {isSubmitting ? 'Processing...' : 'Start Your Subscription'}
           </button>
 
           <p className="text-gray-400 text-center text-sm">
-            No commitment. Cancel anytime. First shipment charged upon order.
+            No commitment. Cancel anytime.
           </p>
         </form>
       </div>
 
       {/* Footer */}
-      <div className="border-t border-white/10 mt-16 py-8">
+      <div className="border-t border-white/10 py-8">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <p className="text-gray-400 text-sm">
-            Made in Canada • Zero Sugar • <0.5% ABV • 18-20 Calories/Glass
-          </p>
-          <p className="text-gray-500 text-xs mt-4">
-            © 2026 ONES • Canada's First Non-Alcoholic Winery
+            © 2026 ONES • Canada&apos;s First Non-Alcoholic Winery
           </p>
         </div>
       </div>
