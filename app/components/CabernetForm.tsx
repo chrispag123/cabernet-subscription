@@ -209,7 +209,15 @@ export default function CabernetForm() {
           <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
               <div style={{ color: '#666666', fontSize: '14px' }}>
-                {packSize}-pack every month
+                <strong style={{ color: '#1a1a1a' }}>
+                  {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
+                </strong>
+                <br />
+                {packSize}-pack, delivered{' '}
+                {frequency === 'monthly' && 'every month'}
+                {frequency === '2months' && 'every 2 months'}
+                {frequency === '3months' && 'every 3 months'}
+                {frequency === '4months' && 'every 4 months'}
               </div>
               <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dbb42b' }}>
                 ${price}
