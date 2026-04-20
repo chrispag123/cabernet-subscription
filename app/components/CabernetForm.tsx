@@ -61,8 +61,8 @@ export default function CabernetForm() {
             key={p}
             onClick={() => setProduct(p as Product)}
             style={{
-              background: product === p ? '#fce8e6' : '#ffffff',
-              border: product === p ? '2px solid #dc2626' : '1px solid #e0e0e0',
+              background: product === p ? '#f5f0e6' : '#ffffff',
+              border: product === p ? '2px solid #dbb42b' : '1px solid #e0e0e0',
               borderRadius: '16px',
               padding: '32px',
               cursor: 'pointer',
@@ -81,7 +81,7 @@ export default function CabernetForm() {
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span style={{ color: '#888888', fontSize: '14px' }}>0g Sugar</span>
-              <span style={{ color: '#dc2626', fontWeight: 'bold' }}>$149.99</span>
+              <span style={{ color: '#dbb42b', fontWeight: 'bold' }}>$149.99</span>
             </div>
           </button>
         ))}
@@ -101,9 +101,9 @@ export default function CabernetForm() {
                   type="button"
                   onClick={() => setPackSize(size as PackSize)}
                   style={{
-                    background: packSize === size ? '#dc2626' : '#ffffff',
-                    border: packSize === size ? '2px solid #dc2626' : '1px solid #e0e0e0',
-                    color: packSize === size ? 'white' : '#1a1a1a',
+                    background: packSize === size ? '#dbb42b' : '#ffffff',
+                    border: packSize === size ? '2px solid #dbb42b' : '1px solid #e0e0e0',
+                    color: packSize === size ? '#1a1a1a' : '#1a1a1a',
                     padding: '16px',
                     borderRadius: '12px',
                     fontWeight: 'bold',
@@ -121,7 +121,7 @@ export default function CabernetForm() {
             <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Delivery Schedule</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {(['monthly', '2months', '3months', '4months'] as Frequency[]).map((freq) => (
-                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#fce8e6' : '#ffffff', border: frequency === freq ? '2px solid #dc2626' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a' }}>
+                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#f5f0e6' : '#ffffff', border: frequency === freq ? '2px solid #dbb42b' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a' }}>
                   <input
                     type="radio"
                     name="frequency"
@@ -139,12 +139,12 @@ export default function CabernetForm() {
           </div>
 
           {/* Price */}
-          <div style={{ background: '#fce8e6', border: '1px solid #dc2626', borderRadius: '16px', padding: '24px' }}>
+          <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
               <div style={{ color: '#666666', fontSize: '14px' }}>
                 {packSize}-pack every month
               </div>
-              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dc2626' }}>
+              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dbb42b' }}>
                 ${price}
               </div>
             </div>
@@ -231,8 +231,8 @@ export default function CabernetForm() {
           <button
             type="submit"
             style={{
-              background: 'linear-gradient(90deg, #dc2626 0%, #991b1b 100%)',
-              color: 'white',
+              background: 'linear-gradient(90deg, #dbb42b 0%, #b89a1f 100%)',
+              color: '#1a1a1a',
               padding: '16px',
               borderRadius: '12px',
               fontWeight: 'bold',
@@ -244,7 +244,7 @@ export default function CabernetForm() {
             Start Your Subscription
           </button>
 
-          <p style={{ color: '#9ca3af', textAlign: 'center', fontSize: '14px' }}>
+          <p style={{ color: '#666666', textAlign: 'center', fontSize: '14px' }}>
             No commitment. Cancel anytime.
           </p>
         </form>
