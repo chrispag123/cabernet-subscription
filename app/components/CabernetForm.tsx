@@ -72,7 +72,7 @@ export default function CabernetForm() {
           The Cabernet Collection
         </h1>
         <p style={{ fontSize: '20px', color: '#4b5563' }}>
-          Premium non-alcoholic red wines. Zero sugar, pure flavor.
+          Premium, sugar-free Cabernet Franc & Cabernet Sauvignon from Canada's finest wine regions.
         </p>
       </div>
 
