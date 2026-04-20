@@ -41,7 +41,7 @@ export default function CabernetForm() {
     <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)' }}>
       {/* Logo */}
       <div style={{ paddingTop: '40px', paddingBottom: '20px', textAlign: 'center' }}>
-        <img src="/ones-logo.svg" alt="ONES Logo" style={{ height: '80px', width: 'auto' }} />
+        <img src="/ones-logo.png" alt="ONES Logo" style={{ height: '100px', width: 'auto' }} />
       </div>
 
       {/* Hero */}
