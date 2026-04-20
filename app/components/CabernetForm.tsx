@@ -60,10 +60,20 @@ export default function CabernetForm() {
   }
 
   useEffect(() => {
-    // Trigger Judge.me widget initialization
-    if (typeof window !== 'undefined' && (window as any).jdgm && (window as any).jdgm.widgets) {
-      (window as any).jdgm.widgets.reinitialize()
-    }
+    // Trigger Judge.me widget initialization with a small delay
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        if ((window as any).jdgm && (window as any).jdgm.widgets) {
+          (window as any).jdgm.widgets.reinitialize()
+        }
+        // Fallback: trigger by reloading the script
+        const script = document.createElement('script')
+        script.src = 'https://cdnwidget.judge.me/widget_preloader.js'
+        script.async = true
+        document.body.appendChild(script)
+      }
+    }, 500)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -199,7 +209,6 @@ export default function CabernetForm() {
           
           {/* Pack Size */}
           <div>
-            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>How Many Bottles?</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '16px' }}>
               {[6, 12].map((size) => (
                 <button
@@ -225,7 +234,6 @@ export default function CabernetForm() {
 
           {/* Frequency */}
           <div>
-            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Delivery Schedule</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {(['monthly', '2months', '3months', '4months'] as Frequency[]).map((freq) => (
                 <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#f5f0e6' : '#ffffff', border: frequency === freq ? '2px solid #dbb42b' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a', fontWeight: 'bold' }}>
