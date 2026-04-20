@@ -219,7 +219,7 @@ export default function CabernetForm() {
                 {frequency === '3months' && 'every 3 months'}
                 {frequency === '4months' && 'every 4 months'}
               </div>
-              <div style={{ fontSize: '56px', fontWeight: 'bold', color: '#dbb42b', textAlign: 'right', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dbb42b', textAlign: 'right', whiteSpace: 'nowrap' }}>
                 ${price}
               </div>
             </div>
