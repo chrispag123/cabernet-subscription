@@ -10,6 +10,7 @@ export default function CabernetForm() {
   const [product, setProduct] = useState<Product>('franc')
   const [packSize, setPackSize] = useState<PackSize>(6)
   const [frequency, setFrequency] = useState<Frequency>('monthly')
+  const [expandedCard, setExpandedCard] = useState<Product | null>(null)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,6 +21,27 @@ export default function CabernetForm() {
     province: '',
     postalCode: '',
   })
+
+  const productDetails: Record<Product, { description: string; pairing: string; tasting: string; serving: string; nutrition: string; alcohol: string; calories: string }> = {
+    franc: {
+      description: 'Bright and composed, this non-alcoholic Cab Franc opens with lifted notes of violet and currants before settling into layers of fresh berries. The texture is supple yet structured, with fine tannins that echo the gentle grip of black tea. Lively acidity keeps everything precise, carrying the fruit through to a clean, persistent finish that feels polished without losing its energy. Graceful, yet expressive, this still red is a flavourful experience of ripeness and depth.',
+      pairing: 'Roasted chicken, pasta with white sauce, fish',
+      tasting: 'Violets & currants on the nose with the texture of black tea & a mouthful of berries on the finish',
+      serving: 'Room temperature or slightly chilled',
+      nutrition: '0g sugar',
+      alcohol: '<0.5%',
+      calories: '<20/glass',
+    },
+    sauvignon: {
+      description: 'Picked at peak ripeness, this Cabernet Sauvignon opens with an inviting, almost playful nose—think black currants layered with warm spice and sweets. The palate is subtle with medium acidity and soft tannins. There\'s a gentle raspberry-like juiciness to the mouthfeel that keeps each sip feeling fresh. The fruit carries cleanly through the finish, adding brightness and lift to a grape that\'s often known for its weight and intensity.',
+      pairing: 'Roasted chicken, aged cheese, duck confit',
+      tasting: 'Spices & currants on the nose with the texture of black tea and a mouthful of berries on the finish',
+      serving: 'Room temperature',
+      nutrition: '0g sugar',
+      alcohol: '<0.5%',
+      calories: '<20/glass',
+    },
+  }
 
   const prices: Record<Product, Record<PackSize, number>> = {
     franc: { 6: 149.99, 12: 284.99 },
@@ -78,9 +100,55 @@ export default function CabernetForm() {
             <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
               {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
             </h3>
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
               <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '32px' }}>${prices[p as Product][packSize]}</span>
             </div>
+            
+            {/* Expandable Details */}
+            <button
+              type="button"
+              onClick={() => setExpandedCard(expandedCard === p as Product ? null : p as Product)}
+              style={{
+                width: '100%',
+                background: 'transparent',
+                border: 'none',
+                color: '#dbb42b',
+                cursor: 'pointer',
+                fontSize: '14px',
+                fontWeight: 'bold',
+                padding: '8px 0',
+                textAlign: 'center',
+              }}
+            >
+              {expandedCard === p as Product ? '▼ Hide Details' : '▶ Learn More'}
+            </button>
+
+            {expandedCard === p as Product && (
+              <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e0e0e0', fontSize: '13px', color: '#666666', lineHeight: '1.6' }}>
+                <p style={{ marginBottom: '12px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Description:</strong><br />
+                  {productDetails[p as Product].description}
+                </p>
+                <p style={{ marginBottom: '8px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Pairing:</strong> {productDetails[p as Product].pairing}
+                </p>
+                <p style={{ marginBottom: '8px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Tasting:</strong> {productDetails[p as Product].tasting}
+                </p>
+                <p style={{ marginBottom: '8px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Serving:</strong> {productDetails[p as Product].serving}
+                </p>
+                <p style={{ marginBottom: '8px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Nutrition:</strong> {productDetails[p as Product].nutrition}
+                </p>
+                <p style={{ marginBottom: '8px' }}>
+                  <strong style={{ color: '#1a1a1a' }}>Alcohol:</strong> {productDetails[p as Product].alcohol}
+                </p>
+                <p>
+                  <strong style={{ color: '#1a1a1a' }}>Calories:</strong> {productDetails[p as Product].calories}
+                </p>
+              </div>
+            )}
           </button>
         ))}
       </div>
