@@ -188,13 +188,13 @@ export default function CabernetForm() {
             <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Delivery Schedule</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {(['monthly', '2months', '3months', '4months'] as Frequency[]).map((freq) => (
-                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#f5f0e6' : '#ffffff', border: frequency === freq ? '2px solid #dbb42b' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a' }}>
+                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#f5f0e6' : '#ffffff', border: frequency === freq ? '2px solid #dbb42b' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a', fontWeight: 'bold' }}>
                   <input
                     type="radio"
                     name="frequency"
                     checked={frequency === freq}
                     onChange={() => setFrequency(freq)}
-                    style={{ marginRight: '12px' }}
+                    style={{ marginRight: '12px', accentColor: '#dbb42b', width: '18px', height: '18px', cursor: 'pointer' }}
                   />
                   {freq === 'monthly' && 'Every Month'}
                   {freq === '2months' && 'Every 2 Months'}
