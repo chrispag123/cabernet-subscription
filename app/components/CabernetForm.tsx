@@ -83,7 +83,7 @@ export default function CabernetForm() {
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span style={{ color: '#888888', fontSize: '14px' }}>0g Sugar</span>
-              <span style={{ color: '#dbb42b', fontWeight: 'bold' }}>$149.99</span>
+              <span style={{ color: '#dbb42b', fontWeight: 'bold' }}>${prices[p as Product][packSize]}</span>
             </div>
           </button>
         ))}
