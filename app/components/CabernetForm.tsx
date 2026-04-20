@@ -197,7 +197,7 @@ export default function CabernetForm() {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           
           {/* Step 2 */}
-          <div style={{ textAlign: 'center', marginTop: '64px', marginBottom: '48px' }}>
+          <div style={{ textAlign: 'center', marginTop: '52px', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
@@ -253,7 +253,7 @@ export default function CabernetForm() {
           </div>
 
           {/* Step 3 */}
-          <div style={{ textAlign: 'center', marginTop: '64px', marginBottom: '48px' }}>
+          <div style={{ textAlign: 'center', marginTop: '52px', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
@@ -296,7 +296,7 @@ export default function CabernetForm() {
           </div>
 
           {/* Step 4 */}
-          <div style={{ textAlign: 'center', marginTop: '64px', marginBottom: '48px' }}>
+          <div style={{ textAlign: 'center', marginTop: '52px', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
