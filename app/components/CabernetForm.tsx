@@ -28,6 +28,13 @@ export default function CabernetForm() {
 
   const price = prices[product][packSize]
 
+  const getProductImage = () => {
+    if (product === 'franc') {
+      return packSize === 6 ? '/cab-franc-6.png' : '/cab-franc-12.png'
+    }
+    return packSize === 6 ? '/cab-franc-6.png' : '/cab-franc-12.png'
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -85,6 +92,11 @@ export default function CabernetForm() {
             </div>
           </button>
         ))}
+      </div>
+
+      {/* Product Image */}
+      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 16px', marginBottom: '48px', textAlign: 'center' }}>
+        <img src={getProductImage()} alt={`${product} ${packSize}-pack`} style={{ maxWidth: '100%', height: 'auto', maxHeight: '400px' }} />
       </div>
 
       {/* Form */}
