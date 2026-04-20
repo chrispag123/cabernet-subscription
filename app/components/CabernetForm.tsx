@@ -323,6 +323,13 @@ export default function CabernetForm() {
             No commitment. Cancel anytime.
           </p>
         </form>
+
+        {/* Judge.me Reviews Widget */}
+        <div style={{ marginTop: '48px' }}>
+          <div className="jdgm-widget jdgm-all-reviews-widget">
+            <div className="jdgm-all-reviews__body"></div>
+          </div>
+        </div>
       </div>
     </div>
   )
