@@ -83,6 +83,39 @@ export default function CabernetForm() {
         </p>
       </div>
 
+      {/* Steps */}
+      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 16px', marginBottom: '64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+          {[
+            { num: 1, title: 'Choose Your Wine' },
+            { num: 2, title: 'Choose Your Pack Amount' },
+            { num: 3, title: 'Choose Your Delivery Schedule' },
+            { num: 4, title: 'Add Your Shipping & Payment Details' },
+          ].map((step) => (
+            <div key={step.num} style={{ textAlign: 'center' }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: '#dbb42b',
+                color: '#1a1a1a',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '28px',
+                fontWeight: 'bold',
+                margin: '0 auto 12px',
+              }}>
+                {step.num}
+              </div>
+              <h3 style={{ fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold', color: '#1a1a1a', lineHeight: '1.4' }}>
+                {step.title}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Product Cards */}
       <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', padding: '0 16px', marginBottom: '48px' }}>
         {['franc', 'sauvignon'].map((p) => (
