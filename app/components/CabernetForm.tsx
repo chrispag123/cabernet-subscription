@@ -93,37 +93,26 @@ export default function CabernetForm() {
         </p>
       </div>
 
-      {/* Steps */}
-      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 16px', marginBottom: '64px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
-          {[
-            { num: 1, title: 'Choose Your Wine' },
-            { num: 2, title: 'Choose Your Pack Amount' },
-            { num: 3, title: 'Choose Your Delivery Schedule' },
-            { num: 4, title: 'Add Your Shipping & Payment Details' },
-          ].map((step) => (
-            <div key={step.num} style={{ textAlign: 'center' }}>
-              <div style={{
-                width: '60px',
-                height: '60px',
-                background: '#dbb42b',
-                color: '#1a1a1a',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '28px',
-                fontWeight: 'bold',
-                margin: '0 auto 12px',
-              }}>
-                {step.num}
-              </div>
-              <h3 style={{ fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold', color: '#1a1a1a', lineHeight: '1.4' }}>
-                {step.title}
-              </h3>
-            </div>
-          ))}
+      {/* Step 1 */}
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 16px', marginBottom: '32px', textAlign: 'center' }}>
+        <div style={{
+          width: '60px',
+          height: '60px',
+          background: '#dbb42b',
+          color: '#1a1a1a',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '28px',
+          fontWeight: 'bold',
+          margin: '0 auto 12px',
+        }}>
+          1
         </div>
+        <h2 style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 'bold', color: '#1a1a1a' }}>
+          Choose Your Wine
+        </h2>
       </div>
 
       {/* Product Cards */}
@@ -207,6 +196,28 @@ export default function CabernetForm() {
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 16px', paddingBottom: '64px' }}>
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           
+          {/* Step 2 */}
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              background: '#dbb42b',
+              color: '#1a1a1a',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              margin: '0 auto 12px',
+            }}>
+              2
+            </div>
+            <h2 style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 'bold', color: '#1a1a1a' }}>
+              Choose Your Pack Amount
+            </h2>
+          </div>
+
           {/* Pack Size */}
           <div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '16px' }}>
@@ -230,6 +241,28 @@ export default function CabernetForm() {
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Step 3 */}
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              background: '#dbb42b',
+              color: '#1a1a1a',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              margin: '0 auto 12px',
+            }}>
+              3
+            </div>
+            <h2 style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 'bold', color: '#1a1a1a' }}>
+              Choose Your Delivery Schedule
+            </h2>
           </div>
 
           {/* Frequency */}
@@ -273,9 +306,30 @@ export default function CabernetForm() {
             </div>
           </div>
 
+          {/* Step 4 */}
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{
+              width: '60px',
+              height: '60px',
+              background: '#dbb42b',
+              color: '#1a1a1a',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '28px',
+              fontWeight: 'bold',
+              margin: '0 auto 12px',
+            }}>
+              4
+            </div>
+            <h2 style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 'bold', color: '#1a1a1a' }}>
+              Add Your Shipping & Payment Details
+            </h2>
+          </div>
+
           {/* Inputs */}
           <div>
-            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Shipping Address</h3>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '16px' }}>
               <input
