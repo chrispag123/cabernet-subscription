@@ -170,9 +170,10 @@ export default function CabernetForm() {
                     background: packSize === size ? '#dbb42b' : '#ffffff',
                     border: packSize === size ? '2px solid #dbb42b' : '1px solid #e0e0e0',
                     color: packSize === size ? '#1a1a1a' : '#1a1a1a',
-                    padding: '16px',
+                    padding: '24px 16px',
                     borderRadius: '12px',
                     fontWeight: 'bold',
+                    fontSize: '18px',
                     cursor: 'pointer',
                   }}
                 >
