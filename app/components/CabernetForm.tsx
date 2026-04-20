@@ -116,7 +116,7 @@ export default function CabernetForm() {
       </div>
 
       {/* Product Cards */}
-      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', padding: '0 16px', marginBottom: '48px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', padding: '0 16px', marginBottom: '80px' }}>
         {['franc', 'sauvignon'].map((p) => (
           <button
             key={p}
@@ -197,7 +197,7 @@ export default function CabernetForm() {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
           
           {/* Step 2 */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
@@ -244,7 +244,7 @@ export default function CabernetForm() {
           </div>
 
           {/* Step 3 */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
@@ -286,28 +286,8 @@ export default function CabernetForm() {
             </div>
           </div>
 
-          {/* Price */}
-          <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
-              <div style={{ color: '#666666', fontSize: 'clamp(14px, 3vw, 18px)', lineHeight: '1.6', width: '100%' }}>
-                <strong style={{ color: '#1a1a1a', fontSize: 'clamp(16px, 4vw, 20px)' }}>
-                  {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
-                </strong>
-                <br />
-                {packSize}-pack, delivered{' '}
-                {frequency === 'monthly' && 'every month'}
-                {frequency === '2months' && 'every 2 months'}
-                {frequency === '3months' && 'every 3 months'}
-                {frequency === '4months' && 'every 4 months'}
-              </div>
-              <div style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
-                ${price}
-              </div>
-            </div>
-          </div>
-
           {/* Step 4 */}
-          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
             <div style={{
               width: '60px',
               height: '60px',
@@ -399,9 +379,62 @@ export default function CabernetForm() {
               placeholder="Postal Code"
               value={formData.postalCode}
               onChange={handleInputChange}
-              style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px' }}
+              style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '32px' }}
               required
             />
+
+            {/* Payment Section */}
+            <div style={{ borderTop: '2px solid #e0e0e0', paddingTop: '32px', marginBottom: '32px' }}>
+              <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Payment Information</h3>
+              
+              <input
+                type="text"
+                placeholder="Cardholder Name"
+                style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px', fontSize: '16px' }}
+              />
+
+              <input
+                type="text"
+                placeholder="Card Number"
+                maxLength={19}
+                style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px', fontSize: '16px' }}
+              />
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                  maxLength={5}
+                  style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
+                />
+                <input
+                  type="text"
+                  placeholder="CVV"
+                  maxLength={4}
+                  style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Price Summary */}
+          <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
+              <div style={{ color: '#666666', fontSize: 'clamp(14px, 3vw, 18px)', lineHeight: '1.6', width: '100%' }}>
+                <strong style={{ color: '#1a1a1a', fontSize: 'clamp(16px, 4vw, 20px)' }}>
+                  {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
+                </strong>
+                <br />
+                {packSize}-pack, delivered{' '}
+                {frequency === 'monthly' && 'every month'}
+                {frequency === '2months' && 'every 2 months'}
+                {frequency === '3months' && 'every 3 months'}
+                {frequency === '4months' && 'every 4 months'}
+              </div>
+              <div style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
+                ${price}
+              </div>
+            </div>
           </div>
 
           {/* Button */}
