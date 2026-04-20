@@ -10,7 +10,7 @@ export default function CabernetForm() {
   const [product, setProduct] = useState<Product>('franc')
   const [packSize, setPackSize] = useState<PackSize>(6)
   const [frequency, setFrequency] = useState<Frequency>('monthly')
-  const [expandedCard, setExpandedCard] = useState<Product | null>(null)
+  const [expandedCards, setExpandedCards] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -107,7 +107,7 @@ export default function CabernetForm() {
             {/* Expandable Details */}
             <button
               type="button"
-              onClick={() => setExpandedCard(expandedCard === p as Product ? null : p as Product)}
+              onClick={() => setExpandedCards(!expandedCards)}
               style={{
                 width: '100%',
                 background: 'transparent',
@@ -120,10 +120,10 @@ export default function CabernetForm() {
                 textAlign: 'center',
               }}
             >
-              {expandedCard === p as Product ? '▼ Hide Details' : '▶ Learn More'}
+              {expandedCards ? '▼ Hide Details' : '▶ About This 0.5% Wine'}
             </button>
 
-            {expandedCard === p as Product && (
+            {expandedCards && (
               <div style={{ marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e0e0e0', fontSize: '13px', color: '#666666', lineHeight: '1.6' }}>
                 <p style={{ marginBottom: '12px' }}>
                   <strong style={{ color: '#1a1a1a' }}>Description:</strong><br />
