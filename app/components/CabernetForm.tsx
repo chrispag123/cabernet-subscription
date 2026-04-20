@@ -207,9 +207,9 @@ export default function CabernetForm() {
 
           {/* Price */}
           <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-              <div style={{ color: '#666666', fontSize: '14px' }}>
-                <strong style={{ color: '#1a1a1a' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '24px' }}>
+              <div style={{ color: '#666666', fontSize: '18px', lineHeight: '1.6', flex: 1 }}>
+                <strong style={{ color: '#1a1a1a', fontSize: '20px' }}>
                   {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
                 </strong>
                 <br />
@@ -219,7 +219,7 @@ export default function CabernetForm() {
                 {frequency === '3months' && 'every 3 months'}
                 {frequency === '4months' && 'every 4 months'}
               </div>
-              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dbb42b' }}>
+              <div style={{ fontSize: '56px', fontWeight: 'bold', color: '#dbb42b', textAlign: 'right', whiteSpace: 'nowrap' }}>
                 ${price}
               </div>
             </div>
