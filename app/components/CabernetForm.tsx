@@ -46,10 +46,10 @@ export default function CabernetForm() {
 
       {/* Hero */}
       <div style={{ paddingTop: '20px', paddingBottom: '60px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '56px', fontWeight: 'bold', color: 'white', marginBottom: '16px' }}>
+        <h1 style={{ fontSize: '56px', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '16px' }}>
           The Cabernet Collection
         </h1>
-        <p style={{ fontSize: '20px', color: '#d1d5db' }}>
+        <p style={{ fontSize: '20px', color: '#4b5563' }}>
           Premium non-alcoholic red wines. Zero sugar, pure flavor.
         </p>
       </div>
@@ -61,13 +61,13 @@ export default function CabernetForm() {
             key={p}
             onClick={() => setProduct(p as Product)}
             style={{
-              background: product === p ? 'rgba(239, 68, 68, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-              border: product === p ? '2px solid #f87171' : '1px solid rgba(255, 255, 255, 0.1)',
+              background: product === p ? '#fce8e6' : '#ffffff',
+              border: product === p ? '2px solid #dc2626' : '1px solid #e0e0e0',
               borderRadius: '16px',
               padding: '32px',
               cursor: 'pointer',
               textAlign: 'left',
-              color: 'white',
+              color: '#1a1a1a',
             }}
           >
             <div style={{ height: '200px', background: 'linear-gradient(180deg, #dc2626 0%, #7f1d1d 100%)', borderRadius: '12px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '64px' }}>
@@ -76,12 +76,12 @@ export default function CabernetForm() {
             <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
               {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
             </h3>
-            <p style={{ color: '#d1d5db', fontSize: '14px', marginBottom: '16px' }}>
+            <p style={{ color: '#666666', fontSize: '14px', marginBottom: '16px' }}>
               {p === 'franc' ? 'Violets & currants. Velvety finish.' : 'Black currant & spices. Full-bodied.'}
             </p>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: '#9ca3af', fontSize: '14px' }}>0g Sugar</span>
-              <span style={{ color: '#f87171', fontWeight: 'bold' }}>$149.99</span>
+              <span style={{ color: '#888888', fontSize: '14px' }}>0g Sugar</span>
+              <span style={{ color: '#dc2626', fontWeight: 'bold' }}>$149.99</span>
             </div>
           </button>
         ))}
@@ -93,7 +93,7 @@ export default function CabernetForm() {
           
           {/* Pack Size */}
           <div>
-            <h3 style={{ color: 'white', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>How Many Bottles?</h3>
+            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>How Many Bottles?</h3>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
               {[6, 12].map((size) => (
                 <button
@@ -101,9 +101,9 @@ export default function CabernetForm() {
                   type="button"
                   onClick={() => setPackSize(size as PackSize)}
                   style={{
-                    background: packSize === size ? '#dc2626' : 'rgba(255, 255, 255, 0.05)',
-                    border: packSize === size ? '2px solid #f87171' : '1px solid rgba(255, 255, 255, 0.2)',
-                    color: 'white',
+                    background: packSize === size ? '#dc2626' : '#ffffff',
+                    border: packSize === size ? '2px solid #dc2626' : '1px solid #e0e0e0',
+                    color: packSize === size ? 'white' : '#1a1a1a',
                     padding: '16px',
                     borderRadius: '12px',
                     fontWeight: 'bold',
@@ -118,10 +118,10 @@ export default function CabernetForm() {
 
           {/* Frequency */}
           <div>
-            <h3 style={{ color: 'white', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Delivery Schedule</h3>
+            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Delivery Schedule</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {(['monthly', '2months', '3months', '4months'] as Frequency[]).map((freq) => (
-                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? 'rgba(220, 38, 38, 0.2)' : 'rgba(255, 255, 255, 0.05)', border: frequency === freq ? '2px solid #f87171' : '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '12px', cursor: 'pointer', color: 'white' }}>
+                <label key={freq} style={{ display: 'flex', alignItems: 'center', padding: '16px', background: frequency === freq ? '#fce8e6' : '#ffffff', border: frequency === freq ? '2px solid #dc2626' : '1px solid #e0e0e0', borderRadius: '12px', cursor: 'pointer', color: '#1a1a1a' }}>
                   <input
                     type="radio"
                     name="frequency"
@@ -139,12 +139,12 @@ export default function CabernetForm() {
           </div>
 
           {/* Price */}
-          <div style={{ background: 'rgba(220, 38, 38, 0.2)', border: '1px solid rgba(248, 113, 113, 0.5)', borderRadius: '16px', padding: '24px' }}>
+          <div style={{ background: '#fce8e6', border: '1px solid #dc2626', borderRadius: '16px', padding: '24px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-              <div style={{ color: '#d1d5db', fontSize: '14px' }}>
+              <div style={{ color: '#666666', fontSize: '14px' }}>
                 {packSize}-pack every month
               </div>
-              <div style={{ fontSize: '48px', fontWeight: 'bold', color: 'white' }}>
+              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dc2626' }}>
                 ${price}
               </div>
             </div>
@@ -152,7 +152,7 @@ export default function CabernetForm() {
 
           {/* Inputs */}
           <div>
-            <h3 style={{ color: 'white', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Shipping Address</h3>
+            <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Shipping Address</h3>
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
               <input
@@ -161,7 +161,7 @@ export default function CabernetForm() {
                 placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
                 required
               />
               <input
@@ -170,7 +170,7 @@ export default function CabernetForm() {
                 placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
                 required
               />
             </div>
@@ -181,7 +181,7 @@ export default function CabernetForm() {
               placeholder="Email"
               value={formData.email}
               onChange={handleInputChange}
-              style={{ width: '100%', padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white', marginBottom: '16px' }}
+              style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px' }}
               required
             />
 
@@ -191,7 +191,7 @@ export default function CabernetForm() {
               placeholder="Address"
               value={formData.address}
               onChange={handleInputChange}
-              style={{ width: '100%', padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white', marginBottom: '16px' }}
+              style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px' }}
               required
             />
 
@@ -202,7 +202,7 @@ export default function CabernetForm() {
                 placeholder="City"
                 value={formData.city}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
                 required
               />
               <input
@@ -211,7 +211,7 @@ export default function CabernetForm() {
                 placeholder="Province"
                 value={formData.province}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
                 required
               />
             </div>
@@ -222,7 +222,7 @@ export default function CabernetForm() {
               placeholder="Postal Code"
               value={formData.postalCode}
               onChange={handleInputChange}
-              style={{ width: '100%', padding: '12px', background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(255, 255, 255, 0.2)', borderRadius: '8px', color: 'white', marginBottom: '16px' }}
+              style={{ width: '100%', padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', marginBottom: '16px' }}
               required
             />
           </div>
