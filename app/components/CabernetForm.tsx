@@ -230,14 +230,23 @@ export default function CabernetForm() {
                     background: packSize === size ? '#dbb42b' : '#ffffff',
                     border: packSize === size ? '2px solid #dbb42b' : '1px solid #e0e0e0',
                     color: packSize === size ? '#1a1a1a' : '#1a1a1a',
-                    padding: '24px 16px',
+                    padding: '16px',
                     borderRadius: '12px',
                     fontWeight: 'bold',
                     fontSize: '18px',
                     cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '12px',
                   }}
                 >
-                  {size} Pack
+                  <img 
+                    src={product === 'franc' ? `/cab-franc-${size}.png` : `/cab-sauv-${size}.png`}
+                    alt={`${size}-pack`}
+                    style={{ height: '120px', width: 'auto', objectFit: 'contain' }}
+                  />
+                  <span>{size} Pack</span>
                 </button>
               ))}
             </div>
