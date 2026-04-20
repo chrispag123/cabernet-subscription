@@ -76,7 +76,7 @@ export default function CabernetForm() {
       {/* Hero */}
       <div style={{ paddingTop: '20px', paddingBottom: '60px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '56px', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '16px' }}>
-          The Cabernet Collection
+          The Cabernet Subscription
         </h1>
         <p style={{ fontSize: '20px', color: '#4b5563' }}>
           Premium, sugar-free Cabernet Franc & Cabernet Sauvignon from Canada's finest wine regions.
