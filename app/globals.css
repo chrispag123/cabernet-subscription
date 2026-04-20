@@ -37,3 +37,70 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(239, 68, 68, 0.5);
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Hero Section */
+  h1 {
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Product Cards Grid */
+  .product-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form Inputs */
+  input,
+  label {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+  }
+
+  /* Button Sizes */
+  button {
+    font-size: 16px !important;
+    padding: 16px !important;
+  }
+
+  /* Price Section */
+  .price-section {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+
+  .price-amount {
+    margin-top: 12px !important;
+  }
+
+  /* Logo */
+  img[alt*="Logo"] {
+    height: 70px !important;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: 24px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  /* Padding adjustments */
+  .form-wrapper,
+  .product-cards-wrapper,
+  .hero-section {
+    padding: 0 16px !important;
+  }
+
+  /* Grid columns for inputs */
+  .input-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Radio button labels */
+  label {
+    flex-wrap: wrap !important;
+  }
+}

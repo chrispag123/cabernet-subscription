@@ -70,21 +70,21 @@ export default function CabernetForm() {
     <div style={{ minHeight: '100vh', background: '#f9f7f3' }}>
       {/* Logo */}
       <div style={{ paddingTop: '40px', paddingBottom: '20px', textAlign: 'center' }}>
-        <img src="/ones-logo.png" alt="ONES Logo" style={{ height: '100px', width: 'auto' }} />
+        <img src="/ones-logo.png" alt="ONES Logo" style={{ height: '100px', width: 'auto', maxWidth: '100%' }} />
       </div>
 
       {/* Hero */}
       <div style={{ paddingTop: '20px', paddingBottom: '60px', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '56px', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '16px' }}>
+        <h1 style={{ fontSize: 'clamp(28px, 6vw, 56px)', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '16px' }}>
           The Cabernet Subscription
         </h1>
-        <p style={{ fontSize: '20px', color: '#4b5563' }}>
+        <p style={{ fontSize: 'clamp(16px, 4vw, 20px)', color: '#4b5563', padding: '0 16px' }}>
           Premium, sugar-free Cabernet Franc & Cabernet Sauvignon from Canada's finest wine regions.
         </p>
       </div>
 
       {/* Product Cards */}
-      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', padding: '0 16px', marginBottom: '48px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', padding: '0 16px', marginBottom: '48px' }}>
         {['franc', 'sauvignon'].map((p) => (
           <button
             key={p}
@@ -167,7 +167,7 @@ export default function CabernetForm() {
           {/* Pack Size */}
           <div>
             <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>How Many Bottles?</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '16px' }}>
               {[6, 12].map((size) => (
                 <button
                   key={size}
@@ -214,9 +214,9 @@ export default function CabernetForm() {
 
           {/* Price */}
           <div style={{ background: '#f5f0e6', border: '1px solid #dbb42b', borderRadius: '16px', padding: '24px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '24px' }}>
-              <div style={{ color: '#666666', fontSize: '18px', lineHeight: '1.6', flex: 1 }}>
-                <strong style={{ color: '#1a1a1a', fontSize: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
+              <div style={{ color: '#666666', fontSize: 'clamp(14px, 3vw, 18px)', lineHeight: '1.6', width: '100%' }}>
+                <strong style={{ color: '#1a1a1a', fontSize: 'clamp(16px, 4vw, 20px)' }}>
                   {product === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
                 </strong>
                 <br />
@@ -226,7 +226,7 @@ export default function CabernetForm() {
                 {frequency === '3months' && 'every 3 months'}
                 {frequency === '4months' && 'every 4 months'}
               </div>
-              <div style={{ fontSize: '48px', fontWeight: 'bold', color: '#dbb42b', textAlign: 'right', whiteSpace: 'nowrap' }}>
+              <div style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
                 ${price}
               </div>
             </div>
@@ -236,14 +236,14 @@ export default function CabernetForm() {
           <div>
             <h3 style={{ color: '#1a1a1a', fontSize: '18px', fontWeight: 'bold', marginBottom: '16px' }}>Shipping Address</h3>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '16px' }}>
               <input
                 type="text"
                 name="firstName"
                 placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
                 required
               />
               <input
@@ -252,7 +252,7 @@ export default function CabernetForm() {
                 placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
                 required
               />
             </div>
@@ -277,14 +277,14 @@ export default function CabernetForm() {
               required
             />
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '16px', marginBottom: '16px' }}>
               <input
                 type="text"
                 name="city"
                 placeholder="City"
                 value={formData.city}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
                 required
               />
               <input
@@ -293,7 +293,7 @@ export default function CabernetForm() {
                 placeholder="Province"
                 value={formData.province}
                 onChange={handleInputChange}
-                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a' }}
+                style={{ padding: '12px', background: '#ffffff', border: '1px solid #e0e0e0', borderRadius: '8px', color: '#1a1a1a', fontSize: '16px' }}
                 required
               />
             </div>
@@ -333,7 +333,7 @@ export default function CabernetForm() {
 
         {/* Judge.me Reviews Widget */}
         <div style={{ marginTop: '48px' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '24px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: 'clamp(24px, 5vw, 32px)', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '24px', textAlign: 'center' }}>
             Here's what customers are saying
           </h2>
           <div className="jdgm-widget jdgm-all-reviews-widget">
