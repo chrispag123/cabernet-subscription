@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type Product = 'franc' | 'sauvignon'
 type PackSize = 6 | 12
@@ -58,6 +58,13 @@ export default function CabernetForm() {
     e.preventDefault()
     console.log({ product, packSize, frequency, price, ...formData })
   }
+
+  useEffect(() => {
+    // Trigger Judge.me widget initialization
+    if (typeof window !== 'undefined' && (window as any).jdgm && (window as any).jdgm.widgets) {
+      (window as any).jdgm.widgets.reinitialize()
+    }
+  }, [])
 
   return (
     <div style={{ minHeight: '100vh', background: '#f9f7f3' }}>
