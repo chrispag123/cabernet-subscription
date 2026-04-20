@@ -75,15 +75,11 @@ export default function CabernetForm() {
               alt={`${p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'} ${packSize}-pack`}
               style={{ width: '100%', height: 'auto', borderRadius: '12px', marginBottom: '16px' }}
             />
-            <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
+            <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
               {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
             </h3>
-            <p style={{ color: '#666666', fontSize: '14px', marginBottom: '16px' }}>
-              {p === 'franc' ? 'Violets & currants. Velvety finish.' : 'Black currant & spices. Full-bodied.'}
-            </p>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: '#888888', fontSize: '14px' }}>0g Sugar</span>
-              <span style={{ color: '#dbb42b', fontWeight: 'bold' }}>${prices[p as Product][packSize]}</span>
+            <div style={{ textAlign: 'center' }}>
+              <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '32px' }}>${prices[p as Product][packSize]}</span>
             </div>
           </button>
         ))}
