@@ -326,6 +326,9 @@ export default function CabernetForm() {
 
         {/* Judge.me Reviews Widget */}
         <div style={{ marginTop: '48px' }}>
+          <h2 style={{ fontSize: '32px', fontWeight: 'bold', color: '#1a1a1a', marginBottom: '24px', textAlign: 'center' }}>
+            Here's what customers are saying
+          </h2>
           <div className="jdgm-widget jdgm-all-reviews-widget">
             <div className="jdgm-all-reviews__body"></div>
           </div>
