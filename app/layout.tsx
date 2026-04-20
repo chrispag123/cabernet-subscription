@@ -14,10 +14,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script>
-          {`jdgm = window.jdgm || {};jdgm.SHOP_DOMAIN = 'ones-876a.myshopify.com';jdgm.PLATFORM = 'shopify';jdgm.PUBLIC_TOKEN = 'qxD2N1IV9Zchm-g1xa5qcP20Lxc';`}
-        </script>
-        <script data-cfasync='false' type='text/javascript' async src='https://cdnwidget.judge.me/widget_preloader.js'></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `jdgm = window.jdgm || {};jdgm.SHOP_DOMAIN = 'ones-876a.myshopify.com';jdgm.PLATFORM = 'shopify';jdgm.PUBLIC_TOKEN = 'qxD2N1IV9Zchm-g1xa5qcP20Lxc';`
+        }} />
+        <script src='https://cdnwidget.judge.me/widget_preloader.js' async></script>
       </head>
       <body className="antialiased">{children}</body>
     </html>
