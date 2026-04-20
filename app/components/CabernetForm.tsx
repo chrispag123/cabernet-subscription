@@ -60,20 +60,20 @@ export default function CabernetForm() {
   }
 
   useEffect(() => {
-    // Trigger Judge.me widget initialization with a small delay
-    const timer = setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        if ((window as any).jdgm && (window as any).jdgm.widgets) {
-          (window as any).jdgm.widgets.reinitialize()
+    // Wait for Judge.me script to load and initialize
+    const checkAndInit = setInterval(() => {
+      const w = window as any
+      if (w.jdgm) {
+        clearInterval(checkAndInit)
+        // Trigger widget initialization
+        if (w.jdgm.widgets && typeof w.jdgm.widgets.reinitialize === 'function') {
+          w.jdgm.widgets.reinitialize()
         }
-        // Fallback: trigger by reloading the script
-        const script = document.createElement('script')
-        script.src = 'https://cdnwidget.judge.me/widget_preloader.js'
-        script.async = true
-        document.body.appendChild(script)
       }
-    }, 500)
-    return () => clearTimeout(timer)
+    }, 100)
+    
+    // Cleanup
+    return () => clearInterval(checkAndInit)
   }, [])
 
   return (
