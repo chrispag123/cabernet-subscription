@@ -73,7 +73,7 @@ export default function CabernetForm() {
             <img 
               src={p === 'franc' ? `/cab-franc-${packSize}.png` : `/cab-sauv-${packSize}.png`}
               alt={`${p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'} ${packSize}-pack`}
-              style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '12px', marginBottom: '16px' }}
+              style={{ width: '100%', height: 'auto', borderRadius: '12px', marginBottom: '16px' }}
             />
             <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
               {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
