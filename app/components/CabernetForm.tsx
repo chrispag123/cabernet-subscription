@@ -28,13 +28,6 @@ export default function CabernetForm() {
 
   const price = prices[product][packSize]
 
-  const getProductImage = () => {
-    if (product === 'franc') {
-      return packSize === 6 ? '/cab-franc-6.png' : '/cab-franc-12.png'
-    }
-    return packSize === 6 ? '/cab-franc-6.png' : '/cab-franc-12.png'
-  }
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -77,9 +70,11 @@ export default function CabernetForm() {
               color: '#1a1a1a',
             }}
           >
-            <div style={{ height: '200px', background: 'linear-gradient(180deg, #dc2626 0%, #7f1d1d 100%)', borderRadius: '12px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '64px' }}>
-              🍇
-            </div>
+            <img 
+              src={p === 'franc' ? `/cab-franc-${packSize}.png` : `/cab-sauv-${packSize}.png`}
+              alt={`${p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'} ${packSize}-pack`}
+              style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '12px', marginBottom: '16px' }}
+            />
             <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '8px' }}>
               {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
             </h3>
@@ -92,11 +87,6 @@ export default function CabernetForm() {
             </div>
           </button>
         ))}
-      </div>
-
-      {/* Product Image */}
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 16px', marginBottom: '48px', textAlign: 'center' }}>
-        <img src={getProductImage()} alt={`${product} ${packSize}-pack`} style={{ maxWidth: '100%', height: 'auto', maxHeight: '400px' }} />
       </div>
 
       {/* Form */}
