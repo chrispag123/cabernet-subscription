@@ -159,7 +159,7 @@ export default function CabernetForm() {
                 textAlign: 'center',
               }}
             >
-              {expandedCards ? '▼ Hide Details' : '▶ About This 0.5% Wine'}
+              {expandedCards ? '▼ Hide Details' : '▶ About This Wine'}
             </button>
 
             {expandedCards && (
