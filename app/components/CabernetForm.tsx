@@ -137,7 +137,7 @@ export default function CabernetForm() {
               style={{ width: '100%', height: 'auto', borderRadius: '12px', marginBottom: '16px' }}
             />
             <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px' }}>
-              {p === 'franc' ? 'Cabernet Franc' : 'Cabernet Sauvignon'}
+              {p === 'franc' ? 'Non-Alc Cabernet Franc' : 'Non-Alc Cabernet Sauvignon'}
             </h3>
             <div style={{ textAlign: 'center', marginBottom: '16px' }}>
               <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '32px' }}>${prices[p as Product][packSize]}</span>
