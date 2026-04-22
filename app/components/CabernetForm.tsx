@@ -334,6 +334,9 @@ export default function CabernetForm() {
               <div style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
                 ${price}
               </div>
+              <div style={{ color: '#2e7d32', fontSize: 'clamp(16px, 4vw, 20px)', fontWeight: 'bold' }}>
+                + Free Shipping!
+              </div>
             </div>
           </div>
 
