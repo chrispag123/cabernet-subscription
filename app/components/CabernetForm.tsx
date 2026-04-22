@@ -111,7 +111,7 @@ export default function CabernetForm() {
           1
         </div>
         <h2 style={{ fontSize: 'clamp(20px, 5vw, 28px)', fontWeight: 'bold', color: '#1a1a1a' }}>
-          Choose Your Wine
+          Choose Your Non-Alc Wine
         </h2>
       </div>
 
