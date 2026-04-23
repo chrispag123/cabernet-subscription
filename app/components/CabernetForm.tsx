@@ -175,11 +175,11 @@ export default function CabernetForm() {
             </h3>
             <div style={{ textAlign: 'center', marginBottom: '16px' }}>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#999999', textDecoration: 'line-through', fontSize: '18px', marginRight: '8px' }}>
-                  ${prices[p as Product][packSize].regular}
-                </span>
-                <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '28px' }}>
+                <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '28px', marginRight: '8px' }}>
                   ${prices[p as Product][packSize].subscribeAndSave}
+                </span>
+                <span style={{ color: '#999999', textDecoration: 'line-through', fontSize: '18px' }}>
+                  ${prices[p as Product][packSize].regular}
                 </span>
               </div>
               <span style={{ color: '#2e7d32', fontWeight: 'bold', fontSize: '14px' }}>
@@ -376,11 +376,11 @@ export default function CabernetForm() {
                 {frequency === '4months' && 'every 4 months'}
               </div>
               <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '12px' }}>
-                <span style={{ fontSize: 'clamp(24px, 6vw, 36px)', fontWeight: 'bold', color: '#999999', textDecoration: 'line-through' }}>
-                  ${priceInfo.regular}
-                </span>
                 <span style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
                   ${priceInfo.subscribeAndSave}
+                </span>
+                <span style={{ fontSize: 'clamp(24px, 6vw, 36px)', fontWeight: 'bold', color: '#999999', textDecoration: 'line-through' }}>
+                  ${priceInfo.regular}
                 </span>
               </div>
               <div style={{ color: '#2e7d32', fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold' }}>
