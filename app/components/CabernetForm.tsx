@@ -43,12 +43,13 @@ export default function CabernetForm() {
     },
   }
 
-  const prices: Record<Product, Record<PackSize, number>> = {
-    franc: { 6: 149.99, 12: 284.99 },
-    sauvignon: { 6: 149.99, 12: 284.99 },
+  const prices: Record<Product, Record<PackSize, { regular: number; subscribeAndSave: number }>> = {
+    franc: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99 } },
+    sauvignon: { 6: { regular: 149.99, subscribeAndSave: 127.49 }, 12: { regular: 284.99, subscribeAndSave: 242.24 } },
   }
 
-  const price = prices[product][packSize]
+  const priceInfo = prices[product][packSize]
+  const savingsPercent = Math.round(((priceInfo.regular - priceInfo.subscribeAndSave) / priceInfo.regular) * 100)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -173,7 +174,17 @@ export default function CabernetForm() {
               {p === 'franc' ? 'Non-Alc Cabernet Franc' : 'Non-Alc Cabernet Sauvignon'}
             </h3>
             <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-              <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '32px' }}>${prices[p as Product][packSize]}</span>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: '#999999', textDecoration: 'line-through', fontSize: '18px', marginRight: '8px' }}>
+                  ${prices[p as Product][packSize].regular}
+                </span>
+                <span style={{ color: '#dbb42b', fontWeight: 'bold', fontSize: '28px' }}>
+                  ${prices[p as Product][packSize].subscribeAndSave}
+                </span>
+              </div>
+              <span style={{ color: '#2e7d32', fontWeight: 'bold', fontSize: '14px' }}>
+                Save 15%
+              </span>
             </div>
             
             {/* Expandable Details */}
@@ -364,8 +375,16 @@ export default function CabernetForm() {
                 {frequency === '3months' && 'every 3 months'}
                 {frequency === '4months' && 'every 4 months'}
               </div>
-              <div style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
-                ${price}
+              <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: '12px' }}>
+                <span style={{ fontSize: 'clamp(24px, 6vw, 36px)', fontWeight: 'bold', color: '#999999', textDecoration: 'line-through' }}>
+                  ${priceInfo.regular}
+                </span>
+                <span style={{ fontSize: 'clamp(36px, 8vw, 48px)', fontWeight: 'bold', color: '#dbb42b' }}>
+                  ${priceInfo.subscribeAndSave}
+                </span>
+              </div>
+              <div style={{ color: '#2e7d32', fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold' }}>
+                Save {savingsPercent}% with Subscribe & Save
               </div>
               <div style={{ color: '#2e7d32', fontSize: 'clamp(16px, 4vw, 20px)', fontWeight: 'bold' }}>
                 + Free Shipping!
