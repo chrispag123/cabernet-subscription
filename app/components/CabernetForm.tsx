@@ -182,9 +182,6 @@ export default function CabernetForm() {
                   ${prices[p as Product][packSize].regular}
                 </span>
               </div>
-              <span style={{ color: '#2e7d32', fontWeight: 'bold', fontSize: '14px' }}>
-                Save 15%
-              </span>
             </div>
             
             {/* Expandable Details */}
