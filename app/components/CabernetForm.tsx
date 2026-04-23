@@ -54,9 +54,22 @@ export default function CabernetForm() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  // Checkout URLs for each product variant
+  const checkoutUrls: Record<Product, Record<PackSize, string>> = {
+    franc: {
+      6: 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48269808206072%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921636600%26return_to%3D%2Fcheckout',
+      12: 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48269808435448%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921636600%26return_to%3D%2Fcheckout',
+    },
+    sauvignon: {
+      6: 'https://www.drinkones.com/checkout',
+      12: 'https://www.drinkones.com/checkout',
+    },
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ product, packSize, frequency, price, ...formData })
+    const url = checkoutUrls[product][packSize]
+    window.location.href = url
   }
 
   useEffect(() => {
