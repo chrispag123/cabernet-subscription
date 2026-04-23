@@ -72,16 +72,16 @@ export default function CabernetForm() {
     },
     sauvignon: {
       6: {
-        monthly: 'https://www.drinkones.com/checkout',
-        '2months': 'https://www.drinkones.com/checkout',
-        '3months': 'https://www.drinkones.com/checkout',
-        '4months': 'https://www.drinkones.com/checkout',
+        monthly: 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272577396984%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921636600%26return_to%3D%2Fcheckout',
+        '2months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272577396984%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921636600%26return_to%3D%2Fcheckout',
+        '3months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272577396984%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921702136%26return_to%3D%2Fcheckout',
+        '4months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272577396984%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921734904%26return_to%3D%2Fcheckout',
       },
       12: {
-        monthly: 'https://www.drinkones.com/checkout',
-        '2months': 'https://www.drinkones.com/checkout',
-        '3months': 'https://www.drinkones.com/checkout',
-        '4months': 'https://www.drinkones.com/checkout',
+        monthly: 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272578052344%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921636600%26return_to%3D%2Fcheckout',
+        '2months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272578052344%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921669368%26return_to%3D%2Fcheckout',
+        '3months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272578052344%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921669368%26return_to%3D%2Fcheckout',
+        '4months': 'https://www.drinkones.com/cart/clear?return_to=%2Fcart%2Fadd%3Fitems%5B%5D%5Bid%5D%3D48272578052344%26items%5B%5D%5Bquantity%5D%3D1%26items%5B%5D%5Bselling_plan%5D%3D5921734904%26return_to%3D%2Fcheckout',
       },
     },
   }
