@@ -43,9 +43,9 @@ export default function CabernetForm() {
     },
   }
 
-  const prices: Record<Product, Record<PackSize, { regular: number; subscribeAndSave: number }>> = {
-    franc: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99 } },
-    sauvignon: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 284.99, subscribeAndSave: 242.24 } },
+  const prices: Record<Product, Record<PackSize, { regular: number; subscribeAndSave: number; strikethrough?: number }>> = {
+    franc: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99, strikethrough: 359.99 } },
+    sauvignon: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99, strikethrough: 359.99 } },
   }
 
   const priceInfo = prices[product][packSize]
@@ -179,7 +179,7 @@ export default function CabernetForm() {
                   ${prices[p as Product][packSize].subscribeAndSave}
                 </span>
                 <span style={{ color: '#999999', textDecoration: 'line-through', fontSize: '18px' }}>
-                  ${prices[p as Product][packSize].regular}
+                  ${prices[p as Product][packSize].strikethrough || prices[p as Product][packSize].regular}
                 </span>
               </div>
             </div>
@@ -377,7 +377,7 @@ export default function CabernetForm() {
                   ${priceInfo.subscribeAndSave}
                 </span>
                 <span style={{ fontSize: 'clamp(24px, 6vw, 36px)', fontWeight: 'bold', color: '#999999', textDecoration: 'line-through' }}>
-                  ${priceInfo.regular}
+                  ${(priceInfo as any).strikethrough || priceInfo.regular}
                 </span>
               </div>
               <div style={{ color: '#2e7d32', fontSize: 'clamp(14px, 3vw, 18px)', fontWeight: 'bold' }}>
