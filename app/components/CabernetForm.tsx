@@ -44,8 +44,8 @@ export default function CabernetForm() {
   }
 
   const prices: Record<Product, Record<PackSize, { regular: number; subscribeAndSave: number; strikethrough?: number }>> = {
-    franc: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99, strikethrough: 359.99 } },
-    sauvignon: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 254.99, strikethrough: 359.99 } },
+    franc: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 299.99, strikethrough: 359.99 } },
+    sauvignon: { 6: { regular: 179.99, subscribeAndSave: 152.99 }, 12: { regular: 299.99, subscribeAndSave: 299.99, strikethrough: 359.99 } },
   }
 
   const priceInfo = prices[product][packSize]
