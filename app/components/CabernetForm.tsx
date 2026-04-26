@@ -49,8 +49,7 @@ export default function CabernetForm() {
   }
 
   const priceInfo = prices[product][packSize]
-  const strikethroughPrice = (priceInfo as any).strikethrough || priceInfo.regular
-  const savingsPercent = Math.round(((strikethroughPrice - priceInfo.subscribeAndSave) / strikethroughPrice) * 100)
+  const savingsPercent = packSize === 12 ? 15 : Math.round(((priceInfo.regular - priceInfo.subscribeAndSave) / priceInfo.regular) * 100)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
