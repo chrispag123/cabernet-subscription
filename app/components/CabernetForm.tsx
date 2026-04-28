@@ -7,6 +7,9 @@ type PackSize = 6 | 12
 type Frequency = 'monthly' | '2months' | '3months' | '4months'
 
 export default function CabernetForm() {
+  // Set to false to show Cabernet Sauvignon, true to hide it
+  const sauvignonOutOfStock = true
+
   const [product, setProduct] = useState<Product>('franc')
   const [packSize, setPackSize] = useState<PackSize>(6)
   const [frequency, setFrequency] = useState<Frequency>('monthly')
@@ -151,7 +154,7 @@ export default function CabernetForm() {
 
       {/* Product Cards */}
       <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', padding: '0 16px', marginBottom: '80px' }}>
-        {['franc', 'sauvignon'].map((p) => (
+        {['franc', 'sauvignon'].filter(p => !(p === 'sauvignon' && sauvignonOutOfStock)).map((p) => (
           <button
             key={p}
             onClick={() => setProduct(p as Product)}
