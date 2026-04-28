@@ -126,7 +126,7 @@ export default function CabernetForm() {
           The Cabernet Subscription
         </h1>
         <p style={{ fontSize: 'clamp(16px, 4vw, 20px)', color: '#4b5563', padding: '0 16px' }}>
-          Premium, sugar-free Cabernet Franc & Cabernet Sauvignon from Canada's finest wine regions.
+          Premium, sugar-free Cabernet Franc from Canada's finest wine regions.
         </p>
       </div>
 
